@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './Home'
+import About from './About'
+import Typewriter from "typewriter-effect";
+import ScrollToTop from "react-scroll-to-top";
+import Service from './Service';
+import Header from './Header/Header';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+      {/* <Typewriter
+options={{
+strings: ['Hello', 'World',"dcndjcn"],
+autoStart: true,
+loop: true,
+}}
+/> */}
+<Header/>
+<ScrollToTop smooth  />
+      <Routes>
+ <Route path='/' element={<Home/>} />
+
+  <Route path='/about' element={<About/>} />
+   <Route path='/service' element={<Service/>} />
+
+      </Routes>
+      </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
